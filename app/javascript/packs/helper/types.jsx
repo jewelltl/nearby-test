@@ -1,0 +1,6 @@
+// Preloader
+export const PRELOADER_TOGGLE = 'PRELOADER_TOGGLE'
+
+// Nearby
+export const LOAD_NEARBY_COMBOS = 'LOAD_NEARBY_COMBOS'
+export const NEARBY_COMBOS_TOGGLE = 'NEARBY_COMBOS_TOGGLE'

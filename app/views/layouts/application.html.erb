@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NearbyReact</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <link href="https://d2gwjd5chbpgug.cloudfront.net/v3/css/nnplugin.min.css" rel="stylesheet" type="text/css" />
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
