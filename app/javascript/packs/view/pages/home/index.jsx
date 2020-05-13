@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
+import renderHTML from 'react-render-html'
 
 import {
   loadNearbyCombos
@@ -23,6 +24,7 @@ class Home extends Component {
         this.setState({
           loading: false
         }, () => {
+          window.eval(this.props.script)
           this.appendScript()
         })
       }
@@ -30,37 +32,42 @@ class Home extends Component {
   }
 
   appendScript = () => {
-    const script = document.createElement("script")
-    script.src = 'https://d2gwjd5chbpgug.cloudfront.net/v3/scripts/heatmap.min.js'
-    script.async = true
-    script.onload = () => this.scriptLoaded()
-
-    document.body.appendChild(script)
+    const script1 = document.createElement("script")
+    const script2 = document.createElement("script")
+    script1.src = 'https://d2gwjd5chbpgug.cloudfront.net/v3/scripts/heatmap.min.js'
+    script2.src = 'https://d2gwjd5chbpgug.cloudfront.net/v4.1/scripts/nn_serviceareareviewscombo.min.js'
+    script2.async = true
+    script1.async = true
+    document.body.appendChild(script1)
+    document.body.appendChild(script2)
   }
 
   scriptLoaded = () => {
-    console.log(window)
-    window.h337.create()
+
   }
 
   render () {
     const { loading } = this.state
-    const { body } = this.props
+    const { body, script } = this.props
     return (
-      <div>
+      <Fragment>
+        {
+          loading && <p style={{ textAlign: 'center' }}>Loading ...</p>
+        }
         {
           !loading &&
           <Fragment>
             <div dangerouslySetInnerHTML={{ __html: body }}></div>
           </Fragment>
         }
-      </div>
+      </Fragment>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  body: state.nearby.body
+  body: state.nearby.body,
+  script: state.nearby.script
 })
 
 const mapDispatchToProps = {

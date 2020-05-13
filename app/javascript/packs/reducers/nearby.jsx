@@ -3,7 +3,8 @@ import {
 } from '../helper/types'
 
 const initState = {
-  body: ''
+  body: '',
+  script: ''
 }
 
 export default (state = initState, action) => {
@@ -11,7 +12,8 @@ export default (state = initState, action) => {
   if (type === NEARBY_COMBOS_TOGGLE) {
     return {
       ...state,
-      body: payload.data
+      body: payload.data,
+      script: payload.script
     }
   }
   return state
