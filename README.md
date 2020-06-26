@@ -22,3 +22,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+[![Contact me on Codementor](https://www.codementor.io/m-badges/stban888/contact-me.svg)](https://www.codementor.io/@stban888?refer=badge)
